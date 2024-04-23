@@ -1,0 +1,20 @@
+Income_Group = SWITCH(
+    TRUE(), 
+    customer[Income] < 35000, "Low",
+    customer[Income] >= 35000 && customer[Income] < 70000, "Medium", 
+    customer[Income] >= 70000, "High", 
+    "Unknown"
+)
+
+
+Age_Group_2 = IF(customer[Customer_Age] <= 30, "20-30", 
+    IF(customer[Customer_Age] <= 40, "30-40",
+        IF(customer[Customer_Age] <= 50, "40-50", 
+            IF(customer[Customer_Age] <= 60, "50-60", 
+                IF(customer[Customer_Age] >= 60, "60+", 
+                    "Unknown"
+                )
+            )
+        )
+    )
+)
